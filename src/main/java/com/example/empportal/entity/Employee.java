@@ -18,6 +18,9 @@ public class Employee implements Serializable {
     private Date dob;
     private String department;
 
+    public Employee() {
+    }
+
     public Employee(Long id, String firstName, String lastName, String gender, Date dob, String department) {
         this.id = id;
         this.firstName = firstName;
@@ -65,5 +68,13 @@ public class Employee implements Serializable {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

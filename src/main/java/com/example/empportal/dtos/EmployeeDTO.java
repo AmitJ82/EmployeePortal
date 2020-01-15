@@ -72,4 +72,17 @@ public class EmployeeDTO {
     public void setDepartment(String department) {
         this.department = department;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("EmployeeDTO{");
+        sb.append("id=").append(id);
+        sb.append(", firstName='").append(firstName).append('\'');
+        sb.append(", lastName='").append(lastName).append('\'');
+        sb.append(", gender='").append(gender).append('\'');
+        sb.append(", dob=").append(dob);
+        sb.append(", department='").append(department).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

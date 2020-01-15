@@ -7,6 +7,7 @@ import com.example.empportal.mapper.EmployeeMapper;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.employeeRepository = employeeRepository;
     }
     @Override
+    @Transactional
     public EmployeeDTO registerEmployee(EmployeeDTO employeeDTO){
         EmployeeMapper mapper= Mappers.getMapper(EmployeeMapper.class);
         Employee employee=mapper.employeeDTOToEmployee(employeeDTO);
@@ -28,9 +30,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         return  mapper.employeeToEmployeeDTO(employee);
     }
     @Override
+    @Transactional
     public List<EmployeeDTO> employeeList(){
         List<EmployeeDTO> employeeDTOS=new ArrayList<>();
         EmployeeMapper mapper= Mappers.getMapper(EmployeeMapper.class);
+       System.out.println("employeeRepository.findAllByOrderByFirstNameAsc()"+employeeRepository.findAllByOrderByFirstNameAsc());
         employeeRepository.findAllByOrderByFirstNameAsc().stream().forEach(e->employeeDTOS.add(mapper.employeeToEmployeeDTO(e)));
        return employeeDTOS;
     }

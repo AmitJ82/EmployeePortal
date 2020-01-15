@@ -18,6 +18,15 @@ public class Employee implements Serializable {
     private Date dob;
     private String department;
 
+    public Employee(Long id, String firstName, String lastName, String gender, Date dob, String department) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.dob = dob;
+        this.department = department;
+    }
+
     public String getFirstName() {
         return firstName;
     }

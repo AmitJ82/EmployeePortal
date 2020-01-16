@@ -2,11 +2,9 @@ package com.example.empportal;
 
 import com.example.empportal.dtos.EmployeeDTO;
 import com.example.empportal.services.EmployeeService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Entity;
 import java.util.List;
@@ -19,12 +17,14 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+
     @PostMapping("/registerEmployee")
     EmployeeDTO registerEmployee(@RequestBody EmployeeDTO employeeDTO){
         employeeDTO=employeeService.registerEmployee(employeeDTO);
 
         return employeeDTO;
     }
+
     @GetMapping("/listEmployees")
     List<EmployeeDTO> listEmployees(){
         return employeeService.employeeList();

@@ -21,6 +21,10 @@ Method: HTTP GET
 Response:
 [{"id":1,"firstName":"Amit","lastName":"Joshi","gender":"M","dob":"12 Jan 1982","department":"IT"},{"id":2,"firstName":"Sumit","lastName":"Joshi","gender":"M","dob":"12 Jan 1983","department":"IT"}]
 
+Swagger support is included
+/v2/api-docs lists the apis available
+http://localhost:8080/swagger-ui.html#/employee-controller lists the available apis to try out
+
 
 
 

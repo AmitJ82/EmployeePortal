@@ -1,14 +1,18 @@
 package com.example.empportal.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModelProperty;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class EmployeeDTO {
+public class EmployeeDTO implements Serializable {
+    static final long serialVersionUID = 1L;
     private Long id;
     private String firstName;
     private String lastName;
     private String gender;
+    @ApiModelProperty(notes = "Date of birth for Employee Format dd MMM yyyy")
     @JsonFormat(pattern = "dd MMM yyyy" , timezone = "EST")
     private Date dob;
     private String department;
